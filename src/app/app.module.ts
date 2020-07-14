@@ -3,14 +3,22 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BooksModule } from './books/books.module';
+import { AboutModule } from './about/about.module';
+import { NavigationComponent } from './navigation/navigation.component';
+import { TitleBoxComponent } from './title-box/title-box.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavigationComponent,
+    TitleBoxComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BooksModule,
+    AboutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
