@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Book } from './book.type'
 
 @Component({
   selector: 'jan-is-awesome-book-list',
@@ -7,14 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookListComponent implements OnInit {
 
-  books = [
+  books: Book[] = [
     {
       "title": "Design Patterns",
       "subtitle": "Elements of Reusable Object-Oriented Software"
     },
     {
       "title": "REST und HTTP",
-      "subtitle": "Entwicklung und Integration nach dem Architekturstil des Web"
+      "subtitle": "Entwicklung und Integration nach dem Architekturstil des Web",
     },
     {
       "title": "Eloquent JavaScript",
