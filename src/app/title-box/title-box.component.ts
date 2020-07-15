@@ -6,9 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./title-box.component.scss']
 })
 export class TitleBoxComponent implements OnInit {
-
-  @Input() title: string;
-
+  
   constructor() { } 
 
   ngOnInit(): void {
