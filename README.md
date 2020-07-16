@@ -25,3 +25,19 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+
+## Task 12
+
+1. Create Book Edit Component `ng g c....`
+2. Tausche Book-list mit BookEdit in AppComponent aus
+3. Importiere ReactiveFormsModule
+4. Lege eine FormGroup für einen neuen BuchEintrag an 
+5. Lege das generelle HTML dazu mit den zugehörigen Bindings an
+
+```html
+<form>
+    <input placeholder="title">
+    <input placeholder="subtitle">
+</form>
+```
