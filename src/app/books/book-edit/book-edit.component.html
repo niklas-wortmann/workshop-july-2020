@@ -1,4 +1,5 @@
-<form [formGroup]="form">
+<form [formGroup]="form" (submit)="onSubmit()">
     <input placeholder="title" formControlName="title">
     <input placeholder="subtitle" formControlName="subTitle">
+    <button type="submit">Senden!</button>
 </form>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { Subject } from 'rxjs';
+import { exhaustMap, startWith, tap, take, debounceTime } from 'rxjs/operators';
+import { BookDataService } from '../book-data.service';
 
 @Component({
   selector: 'jan-is-awesome-book-edit',
@@ -10,15 +12,29 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 export class BookEditComponent implements OnInit {
 
   public form: FormGroup;
+  private onSubmitSub = new Subject<void>();
 
-  constructor() { }
+  constructor(private bookService: BookDataService) { }
 
   ngOnInit(): void {
     this.form = new FormGroup({
       title: new FormControl(''),
       subTitle: new FormControl(''),
     });
-    this.form.valueChanges.subscribe(console.log);
-    this.form.statusChanges.subscribe(console.log);
+    this.bookService.getBooks().subscribe(console.log)
+
+    this.onSubmitSub.asObservable().pipe(
+      exhaustMap(_ => this.form.valueChanges.pipe(
+          startWith(this.form.value),
+          tap(value => this.bookService.addBook(value)),
+          debounceTime(3000),
+          take(1)
+        )
+      )
+    ).subscribe();
+  }
+
+  onSubmit(): void {
+    this.onSubmitSub.next();
   }
 }
