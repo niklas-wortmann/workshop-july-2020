@@ -7,6 +7,7 @@ import { BooksModule } from './books/books.module';
 import { AboutModule } from './about/about.module';
 import { NavigationComponent } from './navigation/navigation.component';
 import { TitleBoxComponent } from './title-box/title-box.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { TitleBoxComponent } from './title-box/title-box.component';
     TitleBoxComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     BooksModule,
