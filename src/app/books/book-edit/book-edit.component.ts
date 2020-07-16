@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { exhaustMap, startWith, tap, take, debounceTime } from 'rxjs/operators';
 import { BookDataService } from '../book-data.service';
@@ -18,7 +18,7 @@ export class BookEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      title: new FormControl(''),
+      title: new FormControl('', Validators.required),
       subTitle: new FormControl(''),
     });
     this.bookService.getBooks().subscribe(console.log)
