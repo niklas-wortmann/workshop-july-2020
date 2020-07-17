@@ -19,15 +19,14 @@ export class BookEditComponent implements OnInit {
   ngOnInit(): void {
     this.form = new FormGroup({
       title: new FormControl('', Validators.required),
-      subTitle: new FormControl(''),
+      subtitle: new FormControl(''),
     });
-    this.bookService.getBooks().subscribe(console.log)
 
     this.onSubmitSub.asObservable().pipe(
       exhaustMap(_ => this.form.valueChanges.pipe(
           startWith(this.form.value),
-          tap(value => this.bookService.addBook(value)),
           debounceTime(3000),
+          tap(value => this.bookService.addBook(value)),
           take(1)
         )
       )

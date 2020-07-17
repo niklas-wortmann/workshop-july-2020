@@ -1,6 +1,6 @@
 <form [formGroup]="form" (submit)="onSubmit()">
     <span *ngIf="form.get('title').touched && form.get('title').invalid">FormControl ist invalide</span>
     <input placeholder="title" formControlName="title">
-    <input placeholder="subtitle" formControlName="subTitle">
+    <input placeholder="subtitle" formControlName="subtitle">
     <button type="submit">Senden!</button>
 </form>
